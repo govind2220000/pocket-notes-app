@@ -262,7 +262,7 @@ const Notes = () => {
         className="showNotesContent"
         style={{
           width: showNotes ? "100vw" : "80vw",
-          height: "100vh",
+          height: "100%",
           backgroundColor: "lightblue",
           display: showNotes ? "flex" : "none",
           flexDirection: "column",
@@ -389,7 +389,7 @@ const Notes = () => {
           className="notesInputSection"
           style={{
             backgroundColor: "#001F8B",
-            height: isSmallScreen ? "20vh" : "30vh",
+            height: isSmallScreen ? "20%" : "30vh",
             padding: isSmallScreen ? "1rem" : "2rem",
             overflowY: "hidden",
           }}
