@@ -102,27 +102,12 @@ const Notes = () => {
         style={{
           display: showNotes && isSmallScreen ? "none" : "flex",
           height: isSmallScreen ? "100vh" : "",
+          overflowY: "hidden",
+          overflowX: "hidden",
         }}
       >
         <h2>Pocket Notes</h2>
-        <button
-          onClick={showModal}
-          style={
-            isSmallScreen
-              ? {
-                  position: "sticky",
-                  width: "70px",
-                  height: "70px",
-                  borderRadius: "50%",
-                  backgroundColor: "#16008b",
-                  border: "none",
-                  top: "90%",
-                  left: "75%",
-                  zIndex: 10,
-                }
-              : {}
-          }
-        >
+        <button onClick={showModal}>
           <h1
             style={{
               fontSize: isSmallScreen ? "2.6rem" : "5rem",

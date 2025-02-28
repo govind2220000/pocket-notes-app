@@ -34,7 +34,7 @@
     border: none;
 
     top: 85%;
-    left: 10%;
+    left: 60%;
     z-index: 10; /* Ensure the button stays on top */
   }
 
@@ -233,6 +233,18 @@
   .notesList {
     width: 100vw;
     height: auto;
+
+    button {
+      position: sticky;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: #16008b;
+      border: none;
+      top: 90%;
+      left: 75%;
+      z-index: 10;
+    }
   }
 
   .notesContent {
