@@ -1,0 +1,313 @@
+.notesAppContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left Side of the App */
+
+.notesList {
+  width: 20vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-weight: 560;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 2.2rem;
+    letter-spacing: 2%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  button {
+    position: sticky;
+    width: 93px;
+    height: 93px;
+    border-radius: 50%;
+    background-color: #16008b;
+    border: none;
+
+    top: 85%;
+    left: 10%;
+    z-index: 10; /* Ensure the button stays on top */
+  }
+
+  .notesListContainer {
+    height: 88%;
+    margin: 0 5%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: darkgray;
+
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #ffffff;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb:active {
+      background-color: #ffffff;
+      border-radius: 5px;
+    }
+
+    position: relative;
+  }
+
+  .notesListItem {
+    margin: 1rem;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+  }
+
+  .notesListItem[data-selected="true"] {
+    background-color: #c7c7c7;
+    border-radius: 10px;
+  }
+
+  .notesListItem:not([data-selected="true"]):hover {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+}
+
+/* Right Side of the App */
+
+.notesContent {
+  width: 80vw;
+  height: 100vh;
+  background-color: #dae5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    text-align: center;
+    font-size: 1rem;
+    color: #292929;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+  }
+}
+
+/* Modal Style */
+
+.modalBackdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* To make sure it's on top of everything basically for stacking pupose*/
+}
+
+.modalContent {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 60vw;
+
+  max-width: 500px;
+  position: relative;
+}
+
+.inputGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.inputGroup label {
+  text-wrap: nowrap;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+.inputGroup input {
+  margin-left: 0.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  font-size: 1rem;
+}
+
+.colorSelection {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colorSelection label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 2;
+}
+
+.colorOptions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.colorOption {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.colorOption[data-selected="true"] {
+  transform: scale(1.2);
+  border: 1.5px solid #000;
+}
+
+.createButton {
+  background-color: #001f8b;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 30%;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-left: 70%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .notesAppContainer {
+    flex-direction: column;
+  }
+
+  .notesList {
+    width: 100vw;
+    height: auto;
+  }
+
+  .notesContent {
+    width: 100vw;
+    height: auto;
+  }
+
+  .showNotesContent {
+    width: 100vw;
+    height: auto;
+  }
+
+  .backButton {
+    display: block;
+    background-color: #001f8b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 1rem;
+  }
+
+  .notesListContainer {
+    button {
+      position: sticky;
+      width: 93px;
+      height: 93px;
+      border-radius: 50%;
+      background-color: #16008b;
+      border: none;
+      top: 70%;
+      left: 70%;
+      z-index: 10;
+    }
+  }
+
+  .modalContent {
+    width: 95vw; /* Adjust the width for small screens */
+    padding: 1rem; /* Adjust padding for small screens */
+  }
+
+  .inputGroup {
+    label {
+      font-size: 1.1rem;
+    }
+    input {
+      font-size: 1rem;
+      border-radius: 18px;
+    }
+  }
+
+  .colorSelection {
+    label {
+      text-wrap: nowrap;
+      font-size: 1.1rem;
+    }
+  }
+
+  .colorOptions {
+    margin-left: 0.5rem;
+  }
+
+  .colorOption {
+    gap: 0.1rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .colorOption[data-selected="true"] {
+    transform: scale(1);
+    border: 1px solid #000;
+  }
+}
